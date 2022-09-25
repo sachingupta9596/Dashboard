@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grid-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <span class="headerText">Peak Shaving & Alert</span>
+        </div>
+        <div class="header-right">
+          <span class="headerText">Carlsberg Group</span>
+
+          <span class="material-icons-outlined">notifications</span>
+          <span
+            style="
+              color: white;
+              font-size: 0.75rem;
+              position: absolute;
+              background-color: red;
+              padding: 1px;
+              border-radius: 50%;
+            "
+            >3</span
+          >
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <h3>Grid Manager 2.0</h1>
+              <hr>
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()"
+            >close</span
+          >
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">dashboard</span> Dashboard
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">inventory_2</span> Products
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">fact_check</span> Inventory
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">add_shopping_cart</span>
+            Purchase Orders
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">shopping_cart</span> Sales
+            Orders
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">poll</span> Reports
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined">settings</span> Settings
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-cards">
+          <div class="charts-card">
+            <p class="chart-title">Purchase and Sales Orders</p>
+            <div id="area-chart"></div>
+          </div>
+        </div>
+        <div class="bottomContainer">
+          <div class="formdiv">
+            <h2 style="color: black; font-size: 1rem; font-weight: bolder">
+              Create ALert
+            </h2>
+            <form action="#" id="submitForm">
+              <div class="input">
+                <input
+                  type="text"
+                  class="inputText"
+                  placeholder="Company Name"
+                  name="Company"
+                  id="Nameinput"
+                />
+              </div>
+
+              <div class="input">
+                <input
+                  type="tel"
+                  class="inputText"
+                  placeholder="Contact"
+                  name="Contact"
+                  id="Contactinput"
+                />
+              </div>
+              <div class="input">
+                <input
+                  type="text"
+                  class="inputText"
+                  placeholder="Country"
+                  name="Country"
+                  id="Countryinput"
+                />
+              </div>
+              <div class="input">
+                <input type="submit" class="inputText" placeholder="Submit" />
+              </div>
+            </form>
+          </div>
+          <div class="tablediv">
+            <button class="tablebutton bc">ALert</button>
+            <button class="tablebutton">Trigered Alerts</button>
+            <table id="tabledata">
+              <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+                <th>Actions</th>
+              </tr>
+              <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+                <td>
+                  <span class="material-icons-outlined delete hover"
+                    >delete</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+                <td>
+                  <span class="material-icons-outlined delete hover"
+                    >delete</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Ernst Handel</td>
+                <td>Roland Mendel</td>
+                <td>Austria</td>
+                <td>
+                  <span class="material-icons-outlined delete hover"
+                    >delete</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+                <td>
+                  <span class="material-icons-outlined delete hover"
+                    >delete</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+                <td>
+                  <span class="material-icons-outlined delete hover"
+                    >delete</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+                <td>
+                  <span class="material-icons-outlined delete hover"
+                    >delete</span
+                  >
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </main>
+      <!-- End Main -->
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="./scripts.js"></script>
+  </body>
+</html>
